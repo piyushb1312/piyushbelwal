@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piyush Belwal — Cyber GRC & Risk Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   VARIABLES & RESET
+═══════════════════════════════════════════════════════════ */
+:root {
+  --ink: #09090f;
+  --ink-mid: #1a1a28;
+  --ink-light: #2d2d42;
+  --surface: #0f0f1a;
+  --surface-2: #161624;
+  --surface-3: #1e1e30;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.15);
+  --gold: #c8a84b;
+  --gold-light: #e2c97e;
+  --gold-dim: rgba(200,168,75,0.15);
+  --text: #e8e6df;
+  --text-mid: #a8a59e;
+  --text-dim: #6b6860;
+  --green: #4caf7d;
+  --green-dim: rgba(76,175,125,0.12);
+  --red: #e05c5c;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--ink);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NOISE TEXTURE OVERLAY
+═══════════════════════════════════════════════════════════ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.4;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: rgba(9,9,15,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: padding var(--transition);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+.nav-logo span {
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-mid);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color var(--transition);
+  font-family: var(--font-mono);
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION UTILITIES
+═══════════════════════════════════════════════════════════ */
+section {
+  padding: 100px 60px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold-dim);
+  max-width: 60px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 48px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════════ */
+.hero-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+/* Geometric background */
+.hero-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(200,168,75,0.04) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(76,175,125,0.03) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 80px;
+  align-items: center;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 60px;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 7vw, 82px);
+  font-weight: 700;
+  line-height: 1.0;
+  color: var(--text);
+  margin-bottom: 8px;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-mid);
+  margin-bottom: 28px;
+  line-height: 1.4;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.hero-title strong {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.hero-position {
+  font-size: 15px;
+  color: var(--text-mid);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+
+.hero-position strong { color: var(--text); font-weight: 500; }
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  animation: fadeUp 0.8s 0.4s ease both;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 3px;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(200,168,75,0.25);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 13px 28px;
+  border-radius: 3px;
+  text-decoration: none;
+  border: 1px solid var(--border-strong);
+  letter-spacing: 0.5px;
+  transition: all var(--transition);
+}
+
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+
+/* Hero image */
+.hero-image-block {
+  animation: fadeIn 1s 0.5s ease both;
+}
+
+.hero-image-container {
+  position: relative;
+  aspect-ratio: 3/4;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+}
+
+/* 
+  ══════════════════════════════════════════════
+  REPLACE WITH USER IMAGE:
+  Remove the placeholder div below and add:
+  <img src="your-photo.jpg" alt="Piyush Belwal" style="width:100%;height:100%;object-fit:cover;">
+  ══════════════════════════════════════════════
+*/
+.hero-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, var(--surface-2), var(--surface-3));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 400px;
+}
+
+.hero-image-placeholder svg {
+  opacity: 0.2;
+}
+
+.hero-image-placeholder p {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.hero-image-frame {
+  position: absolute;
+  top: -12px; left: -12px; right: 12px; bottom: 12px;
+  border: 1px solid var(--gold-dim);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.hero-credentials {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cred-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-mid);
+}
+
+.cred-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Hero stats bar */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+  animation: fadeUp 0.8s 0.5s ease both;
+}
+
+.hero-stat {}
+.hero-stat-num {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.hero-stat-lbl {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════════════════════ */
+.about-section {
+  background: var(--surface);
+  padding: 100px 0;
+}
+
+.about-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-text p {
+  font-size: 16px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.about-text p strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.about-text .lead {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.about-sidebar {}
+
+.about-fact {
+  border-left: 2px solid var(--gold);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  background: var(--surface-2);
+  border-radius: 0 4px 4px 0;
+}
+
+.about-fact-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.about-fact-value {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CAPABILITIES CARDS
+═══════════════════════════════════════════════════════════ */
+.capabilities-section {
+  padding: 100px 60px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.cap-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 32px 28px;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.cap-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.cap-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.cap-card:hover::before {
+  transform: scaleX(1);
+}
+
+.cap-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--gold-dim);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.cap-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.cap-desc {
+  font-size: 13.5px;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.cap-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cap-highlights li {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.cap-highlights li::before {
+  content: '→';
+  color: var(--gold);
+  font-size: 11px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EXPERIENCE TIMELINE
+═══════════════════════════════════════════════════════════ */
+.timeline-section {
+  background: var(--surface);
+  padding: 100px 0;
+}
+
+.timeline-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), var(--border), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 56px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -40px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--gold);
+  transition: all var(--transition);
+}
+
+.timeline-item:hover .timeline-dot {
+  background: var(--gold);
+  box-shadow: 0 0 20px rgba(200,168,75,0.4);
+}
+
+.timeline-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.timeline-period {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+}
+
+.timeline-org {
+  font-size: 12px;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+.timeline-role {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.timeline-impact {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.timeline-metrics {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.timeline-metric {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  background: var(--surface-3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.timeline-metric strong {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.timeline-expand {
+  margin-top: 14px;
+}
+
+.expand-toggle {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  transition: opacity var(--transition);
+}
+
+.expand-toggle:hover { opacity: 0.7; }
+
+.expand-toggle .chevron {
+  transition: transform var(--transition);
+  display: inline-block;
+}
+
+.expand-toggle.open .chevron {
+  transform: rotate(180deg);
+}
+
+.expand-content {
+  display: none;
+  margin-top: 16px;
+  padding: 20px;
+  background: var(--surface-3);
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.expand-content.open { display: block; }
+
+.expand-content ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.expand-content ul li {
+  font-size: 13.5px;
+  color: var(--text-mid);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.55;
+}
+
+.expand-content ul li::before {
+  content: '▸';
+  color: var(--gold);
+  font-size: 10px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROJECT HIGHLIGHTS
+═══════════════════════════════════════════════════════════ */
+.projects-section {
+  padding: 100px 60px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all var(--transition);
+}
+
+.project-card:hover {
+  border-color: rgba(200,168,75,0.3);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+}
+
+/* 
+  ══════════════════════════════════════════════
+  PROJECT CARD IMAGE PLACEHOLDER:
+  Replace .project-card-img div with an actual image:
+  <img src="project-image.jpg" alt="Project Name" class="project-card-img">
+  ══════════════════════════════════════════════
+*/
+.project-card-img {
+  height: 180px;
+  background: linear-gradient(135deg, var(--surface-3), var(--surface));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border);
+  font-size: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 40%, rgba(200,168,75,0.04) 100%);
+}
+
+.project-card-img-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+}
+
+.project-card-body {
+  padding: 24px;
+}
+
+.project-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.project-problem {
+  font-size: 13px;
+  color: var(--text-dim);
+  font-style: italic;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.project-action {
+  font-size: 13.5px;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.project-impact-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.impact-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 3px;
+  background: var(--gold-dim);
+  color: var(--gold-light);
+  border: 1px solid rgba(200,168,75,0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   METRICS SECTION
+═══════════════════════════════════════════════════════════ */
+.metrics-section {
+  background: linear-gradient(135deg, var(--surface-2), var(--ink-mid));
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.metrics-section::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200,168,75,0.04) 0%, transparent 60%);
+  border-radius: 50%;
+}
+
+.metrics-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.metric-item {
+  padding: 48px 40px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition);
+}
+
+.metric-item:hover {
+  background: rgba(200,168,75,0.03);
+}
+
+.metric-item:nth-child(3n) { border-right: none; }
+.metric-item:nth-child(n+4) { border-bottom: none; }
+
+.metric-num {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 60px);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.metric-label {
+  font-size: 13.5px;
+  color: var(--text-mid);
+  line-height: 1.4;
+}
+
+.metric-sub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SKILLS
+═══════════════════════════════════════════════════════════ */
+.skills-section {
+  padding: 100px 60px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+}
+
+.skills-group {}
+
+.skills-group-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-mid);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 3px;
+  transition: all var(--transition);
+  cursor: default;
+}
+
+.skill-tag:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: var(--gold-dim);
+}
+
+.skill-tag.primary {
+  color: var(--gold-light);
+  border-color: rgba(200,168,75,0.4);
+  background: var(--gold-dim);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CERTIFICATIONS
+═══════════════════════════════════════════════════════════ */
+.certs-section {
+  background: var(--surface);
+  padding: 100px 0;
+}
+
+.certs-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.cert-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.cert-card:hover {
+  border-color: rgba(200,168,75,0.3);
+  transform: translateY(-3px);
+}
+
+.cert-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.cert-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.cert-issuer {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+}
+
+.cert-status {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.status-active {
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1px solid rgba(76,175,125,0.2);
+}
+
+.status-pursuing {
+  background: var(--gold-dim);
+  color: var(--gold);
+  border: 1px solid rgba(200,168,75,0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LEADERSHIP SECTION
+═══════════════════════════════════════════════════════════ */
+.leadership-section {
+  padding: 100px 60px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.leadership-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 32px;
+  display: flex;
+  gap: 20px;
+  transition: border-color var(--transition);
+}
+
+.leadership-card:hover {
+  border-color: rgba(200,168,75,0.25);
+}
+
+.leadership-card-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: var(--gold-dim);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leadership-card-content {}
+
+.leadership-card-title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.leadership-card-text {
+  font-size: 13.5px;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════════════════════ */
+.contact-section {
+  background: var(--surface);
+  padding: 100px 0;
+}
+
+.contact-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-intro {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.contact-intro em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.contact-sub {
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: var(--text);
+  padding: 16px 20px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: all var(--transition);
+}
+
+.contact-link:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateX(4px);
+}
+
+.contact-link-icon {
+  font-size: 18px;
+  width: 36px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.contact-link-body {}
+.contact-link-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 2px;
+}
+.contact-link-value {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.contact-availability {
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 28px;
+  margin-top: 24px;
+}
+
+.availability-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.availability-text {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+.availability-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: pulse 2s ease infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════ */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--text-dim);
+}
+
+.footer-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(76,175,125,0.4); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(76,175,125,0); }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════════════════════════ */
+.section-divider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--border), transparent);
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  nav .nav-links { display: none; }
+  .hero-grid { grid-template-columns: 1fr; padding: 0 24px; }
+  .hero-image-block { display: none; }
+  section { padding: 60px 24px; }
+  .about-inner { grid-template-columns: 1fr; padding: 0 24px; gap: 40px; }
+  .capabilities-section { padding: 60px 24px; }
+  .cap-grid { grid-template-columns: 1fr; }
+  .timeline-inner { padding: 0 24px; }
+  .projects-section { padding: 60px 24px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .metrics-inner { padding: 0 24px; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .skills-section { padding: 60px 24px; }
+  .skills-grid { grid-template-columns: 1fr; gap: 32px; }
+  .certs-inner { padding: 0 24px; }
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+  .leadership-section { padding: 60px 24px; }
+  .leadership-grid { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; padding: 0 24px; gap: 40px; }
+  footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ════════════════════════════════ -->
+<nav>
+  <div class="nav-logo">Piyush <span>Belwal</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════════════════ -->
+<div class="hero-wrapper">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Lieutenant Commander · Indian Navy · Retiring 2026</div>
+      <h1 class="hero-name">Piyush<br>Belwal</h1>
+      <div class="hero-title">
+        <strong>Cyber GRC & Risk Leader</strong><br>
+        ISO 27001 · NIST · TPRM · Security Audits · Regulatory Compliance
+      </div>
+      <p class="hero-position">
+        <strong>12 years governing enterprise-scale security programs</strong> across national infrastructure, frontline operations and large-scale technology delivery. CISSP certified. ISO 27001 Lead Implementer. Ready to lead client-facing GRC and risk engagements at Associate Director level.
+      </p>
+      <div class="hero-cta">
+        <a href="#experience" class="btn-primary">View Experience ↓</a>
+        <a href="#" class="btn-ghost" onclick="alert('Please link to your actual resume PDF here.')">Download Resume ↗</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">12</div><div class="hero-stat-lbl">Years Experience</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">₹3,000Cr</div><div class="hero-stat-lbl">Program Scale</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">460+</div><div class="hero-stat-lbl">Apps Audited</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">3×</div><div class="hero-stat-lbl">ISMS Implemented</div></div>
+      </div>
+    </div>
+    <div class="hero-image-block">
+      <div style="position:relative;">
+        <div class="hero-image-frame"></div>
+        <div class="hero-image-container">
+          <!--
+            REPLACE WITH USER IMAGE:
+            Remove the div below and add:
+            <img src="piyush-belwal.jpg" alt="Piyush Belwal" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+          -->
+          <div class="hero-image-placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+            <p>Profile Photo</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-credentials">
+        <div class="cred-item"><div class="cred-dot"></div>CISSP — ISC2</div>
+        <div class="cred-item"><div class="cred-dot"></div>ISO 27001 Lead Implementer — Exemplar Global</div>
+        <div class="cred-item"><div class="cred-dot"></div>ISO 42001 Lead Implementer — TÜV SÜD (In Progress)</div>
+        <div class="cred-item"><div class="cred-dot"></div>CCSE — EC-Council</div>
+        <div class="cred-item"><div class="cred-dot"></div>IIM Lucknow Executive Programme</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ ABOUT ══════════════════════════════ -->
+<div class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-text reveal">
+      <div class="section-label">About</div>
+      <p class="lead">A cybersecurity leader built in the most demanding operational environments — not in classrooms.</p>
+      <p>I am <strong>Piyush Belwal</strong>, a Lieutenant Commander in the Indian Navy retiring after 12 years of progressive responsibility across national security programs, frontline warship operations and enterprise technology delivery. My career has centred on one discipline: <strong>owning the security posture of organisations that cannot afford failure.</strong></p>
+      <p>I have governed <strong>₹3,000+ crore national programs</strong>, built ISO 27001-aligned Information Security Management Systems independently across three separate enterprise environments — including on a frontline warship operating 270 days a year at sea with zero vendor support — and led audits, risk frameworks and compliance programs that serve 100,000 users across 460+ applications.</p>
+      <p>My transition to consulting is deliberate. I have the governance depth, the regulatory familiarity and the executive communication experience to step directly into client-facing GRC and risk engagements. I am completing <strong>ISO 42001 Lead Implementer (TÜV SÜD)</strong> — the AI Management Systems standard — positioning me at the leading edge of the next decade of GRC practice.</p>
+      <p>I am targeting <strong>Associate Director-level roles in cybersecurity GRC, risk consulting and compliance leadership</strong> across Delhi NCR.</p>
+    </div>
+    <div class="about-sidebar reveal">
+      <div class="about-fact">
+        <div class="about-fact-label">Current Status</div>
+        <div class="about-fact-value">Retiring June 2026 · IIM Lucknow Executive Programme (Govt-Deputed)</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-label">Location</div>
+        <div class="about-fact-value">New Delhi · Open to Delhi NCR</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-label">Target Roles</div>
+        <div class="about-fact-value">Associate Director · Senior Manager · GRC Head · ISMS Lead</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-label">Education</div>
+        <div class="about-fact-value">BTech Computer Science · DIT University 2014<br>Executive Programme · IIM Lucknow 2026</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-label">Availability</div>
+        <div class="about-fact-value">July 2026 onwards · Open to earlier discussion</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAPABILITIES ══════════════════════ -->
+<div id="capabilities">
+<div class="capabilities-section">
+  <div class="section-label reveal">Capabilities</div>
+  <h2 class="section-title reveal">What I <em>Lead</em></h2>
+  <div class="cap-grid">
+
+    <div class="cap-card reveal">
+      <div class="cap-icon">🔐</div>
+      <div class="cap-title">Cyber GRC & Risk Management</div>
+      <div class="cap-desc">Enterprise-grade governance, risk and compliance frameworks designed, implemented and sustained at national scale — not from a template, from experience.</div>
+      <ul class="cap-highlights">
+        <li>NIST CSF + ISO 27001 multi-framework alignment</li>
+        <li>Risk register and KRI management across 460+ systems</li>
+        <li>₹3,000Cr program — zero breach incidents over 4 years</li>
+        <li>Regulatory mapping: CERT-In, NCIIPC, SEBI, RBI awareness</li>
+      </ul>
+    </div>
+
+    <div class="cap-card reveal">
+      <div class="cap-icon">📋</div>
+      <div class="cap-title">ISO 27001 ISMS Leadership</div>
+      <div class="cap-desc">Implemented, maintained and been externally audited against ISO 27001 across three independent enterprise environments — certifiably, not theoretically.</div>
+      <ul class="cap-highlights">
+        <li>ISO 27001 Lead Implementer — Exemplar Global certified</li>
+        <li>Three separate ISMS implementations from gap assessment to audit</li>
+        <li>Quarterly internal audits + annual Command HQ external audits</li>
+        <li>SOC2-equivalent audit readiness maintained on warship at sea</li>
+      </ul>
+    </div>
+
+    <div class="cap-card reveal">
+      <div class="cap-icon">🔗</div>
+      <div class="cap-title">Third-Party Risk Management</div>
+      <div class="cap-desc">Structured TPRM governance from vendor onboarding assessment through contractual requirements, ongoing monitoring and offboarding — applied at significant scale.</div>
+      <ul class="cap-highlights">
+        <li>₹300Cr+ technology procurement risk governance</li>
+        <li>RFP security clause authoring and vendor assessment</li>
+        <li>Strategic build-vs-buy decision — ₹300Cr vendor dependency eliminated</li>
+        <li>Vendor SLA performance and compliance management</li>
+      </ul>
+    </div>
+
+    <div class="cap-card reveal">
+      <div class="cap-icon">🔍</div>
+      <div class="cap-title">ITGC & Security Audits</div>
+      <div class="cap-desc">Planned, executed and reported IT security audits across access management, change management and operations controls — at 460-application scale.</div>
+      <ul class="cap-highlights">
+        <li>ITGC testing: access management, change management, computer operations</li>
+        <li>Risk control matrix development and maintenance</li>
+        <li>Design adequacy and operating effectiveness testing</li>
+        <li>Audit report writing for senior leadership and audit committees</li>
+      </ul>
+    </div>
+
+    <div class="cap-card reveal">
+      <div class="cap-icon">⚙️</div>
+      <div class="cap-title">Secure SDLC & AppSec</div>
+      <div class="cap-desc">Governed secure application development at program level — from threat modelling through DevSecOps pipeline to real-world validation against operational environments.</div>
+      <ul class="cap-highlights">
+        <li>Secure SDLC: URS → SRS → DevSecOps (CI/CD, SAST, VAPT)</li>
+        <li>Architecture governance under critical dependency failure (HLD/LLD)</li>
+        <li>Rule-based decision engine design with real-world validation</li>
+        <li>Delivered 60% ahead of 5-year estimate — ₹300Cr cost saving</li>
+      </ul>
+    </div>
+
+    <div class="cap-card reveal">
+      <div class="cap-icon">⚖️</div>
+      <div class="cap-title">Regulatory & Compliance Advisory</div>
+      <div class="cap-desc">12 years of operational familiarity with Indian regulatory security requirements — not theoretical knowledge, but lived compliance governance.</div>
+      <ul class="cap-highlights">
+        <li>CERT-In: 12 years operational adherence + advisory tracking</li>
+        <li>NCIIPC directives — embedded in national security programs</li>
+        <li>ISO 42001 Lead Implementer (TÜV SÜD) — pursuing AI governance</li>
+        <li>4 national & international cyber exercises including Japan bilateral</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════ EXPERIENCE TIMELINE ════════════════ -->
+<div class="timeline-section" id="experience">
+  <div class="timeline-inner">
+    <div class="section-label reveal">Experience</div>
+    <h2 class="section-title reveal">12 Years, <em>Five Postings</em></h2>
+    <div class="timeline">
+
+      <!-- Role 1 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">March 2022 — June 2026</span>
+          <span class="timeline-org">Indian Navy — Navy Cyber Group, New Delhi</span>
+        </div>
+        <div class="timeline-role">Head of Cybersecurity & GRC</div>
+        <div class="timeline-impact">Senior security authority for India's largest naval IT transformation — building enterprise GRC, security architecture and audit governance from scratch across a ₹3,000Cr national program. Zero breach incidents across the entire 4-year lifecycle.</div>
+        <div class="timeline-metrics">
+          <span class="timeline-metric"><strong>₹3,000Cr+</strong> program</span>
+          <span class="timeline-metric"><strong>460+</strong> applications</span>
+          <span class="timeline-metric"><strong>30,000</strong> endpoints</span>
+          <span class="timeline-metric"><strong>100,000</strong> users</span>
+          <span class="timeline-metric"><strong>35+</strong> team</span>
+          <span class="timeline-metric"><strong>₹30Cr</strong> cost saved</span>
+        </div>
+        <div class="timeline-expand">
+          <button class="expand-toggle" onclick="toggleExpand(this)">
+            <span>VIEW DETAILS</span> <span class="chevron">▾</span>
+          </button>
+          <div class="expand-content">
+            <ul>
+              <li>Designed and governed enterprise GRC framework aligned to NIST CSF, NIST 800-53, ISO 27001:2022 and CERT-In/NCIIPC regulatory directives</li>
+              <li>Owned enterprise risk register, KRIs and risk control matrices — maintained for 4 years against organisational risk appetite</li>
+              <li>Led ISO 27001 ISMS implementation and sustenance — gap assessments, control baselines, nonconformity management, audit committee reporting</li>
+              <li>Conducted security audits across 360+ legacy and 100+ new applications — ITGC control testing across access management, change management and operations controls</li>
+              <li>Governed TPRM framework — vendor security assessments, RFP security governance, ₹300Cr+ procurement oversight</li>
+              <li>Provided SOC/NOC governance — defined KPIs and SLAs, managed incident categorisation, planned cyber drills and tabletop exercises</li>
+              <li>Delivered weekly, monthly and quarterly executive dashboards to CISO-equivalent and audit committee leadership</li>
+              <li>Built in-house GRC capability — eliminated ₹30Cr in external consulting costs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 2 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">January 2020 — February 2022</span>
+          <span class="timeline-org">Indian Navy — INS Parundu, Tamil Nadu</span>
+        </div>
+        <div class="timeline-role">Information Technology Officer · IT Head & ISMS Owner</div>
+        <div class="timeline-impact">Sole IT Head for an entire naval air base — governing IT operations, ISMS and cybersecurity across 500+ workstations and 15 buildings, while simultaneously directing a ₹75 crore edge data centre from design through commissioning.</div>
+        <div class="timeline-metrics">
+          <span class="timeline-metric"><strong>₹75Cr</strong> data centre delivered</span>
+          <span class="timeline-metric"><strong>500+</strong> workstations</span>
+          <span class="timeline-metric"><strong>15</strong> buildings</span>
+          <span class="timeline-metric"><strong>15-member</strong> team</span>
+        </div>
+        <div class="timeline-expand">
+          <button class="expand-toggle" onclick="toggleExpand(this)">
+            <span>VIEW DETAILS</span> <span class="chevron">▾</span>
+          </button>
+          <div class="expand-content">
+            <ul>
+              <li>Served as Information Technology Officer for the entire naval base — sole IT Head with full responsibility for operations, security and governance</li>
+              <li>Implemented and sustained Naval ISMS equivalent to ISO 27001 — quarterly internal audits and annual Command HQ external audits at each cycle</li>
+              <li>Directed design, construction and commissioning of ₹75 crore Edge Data Centre — delivered within timeline and regulatory requirements</li>
+              <li>Governed hardware lifecycle management, asset register, software licence compliance and vendor SLA management</li>
+              <li>Managed ₹50 lakh annual AMC contracts with zero operational disruption throughout</li>
+              <li>Coordinated BCP/DR activities — implemented contingency planning frameworks and RTO/RPO governance</li>
+              <li>Led and developed 15-member IT and cybersecurity team through operational and governance cycles</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 3 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">December 2018 — December 2019</span>
+          <span class="timeline-org">Indian Navy — INS Teg (Frontline Warship), Mumbai</span>
+        </div>
+        <div class="timeline-role">IT & Cybersecurity Officer · Sole IT Head</div>
+        <div class="timeline-impact">Sole IT and cybersecurity owner of a frontline warship — maintaining ~99.9% system availability across 100+ endpoints, operating ~270 days a year at sea with zero external or vendor support. Quarterly internal audits. Annual Command HQ external audits. SOC2-equivalent readiness.</div>
+        <div class="timeline-metrics">
+          <span class="timeline-metric"><strong>~270 days/year</strong> at sea</span>
+          <span class="timeline-metric"><strong>~99.9%</strong> availability</span>
+          <span class="timeline-metric"><strong>100+</strong> endpoints</span>
+          <span class="timeline-metric"><strong>Zero</strong> vendor support</span>
+        </div>
+        <div class="timeline-expand">
+          <button class="expand-toggle" onclick="toggleExpand(this)">
+            <span>VIEW DETAILS</span> <span class="chevron">▾</span>
+          </button>
+          <div class="expand-content">
+            <ul>
+              <li>Managed Windows Server ADC, user lifecycle management, SSO enforcement and RBAC/least privilege — IAM governance aligned to enterprise control standards</li>
+              <li>Administered ABSG firewall for boundary protection, controlled traffic flows and secure network operations</li>
+              <li>Designed and deployed mail server on Windows Server with RAID — high-availability design with redundancy and fault tolerance for mission-critical communications</li>
+              <li>Critical incident: diagnosed mail server failure at sea — storage exhaustion + RAID misconfiguration — executed data backup, RAID reconfiguration and capacity optimisation. Zero data loss. SPOF eliminated.</li>
+              <li>Conducted asset lifecycle assessment — identified and eliminated EOL/EOS systems with 7+ years legacy build-up, reducing failure risk and security exposure</li>
+              <li>Managed L1–L3 incident response independently — end-to-end root cause analysis with no escalation support available</li>
+              <li>Built decision-support application enabling ~30–50% faster incident response coordination</li>
+              <li>Trained 2 junior personnel into operational contributors — reducing single-point dependency</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 4 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">October 2017 — December 2018</span>
+          <span class="timeline-org">Indian Navy — Naval War College, Goa</span>
+        </div>
+        <div class="timeline-role">Programme Lead — Technology Deployment & Adoption</div>
+        <div class="timeline-impact">Led deployment and enterprise-wide adoption of India's first computerised operational-level wargame — driving system familiarity from ~20% to ~90% among 100+ senior tri-services officers. Achieved 40% training cycle reduction and ~80% improvement in training effectiveness.</div>
+        <div class="timeline-metrics">
+          <span class="timeline-metric"><strong>~20% → ~90%</strong> adoption</span>
+          <span class="timeline-metric"><strong>100+</strong> officers trained</span>
+          <span class="timeline-metric"><strong>40%</strong> cycle reduction</span>
+          <span class="timeline-metric"><strong>~80%</strong> effectiveness gain</span>
+        </div>
+        <div class="timeline-expand">
+          <button class="expand-toggle" onclick="toggleExpand(this)">
+            <span>VIEW DETAILS</span> <span class="chevron">▾</span>
+          </button>
+          <div class="expand-content">
+            <ul>
+              <li>Deployed production-ready enterprise wargame from WESEE project into live operational environment</li>
+              <li>Drove complex system adoption among 100+ senior Army, Navy and Air Force officers through structured change management and training programs</li>
+              <li>Managed access controls, change management and data integrity across live executive simulation environments — zero downtime during all high-stakes sessions</li>
+              <li>Served as primary technical interface between development team (New Delhi) and senior end users (Goa) — capturing feedback and managing iterative improvements</li>
+              <li>Delivered annual security awareness training to 100% of staff against annual training calendar</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 5 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">July 2015 — September 2017</span>
+          <span class="timeline-org">Indian Navy — WESEE, New Delhi</span>
+        </div>
+        <div class="timeline-role">Deputy Project Manager — OLWG Enterprise Program</div>
+        <div class="timeline-impact">Led end-to-end delivery of India's first Operational Level Wargame — a national-scale enterprise technology program for the Indian Armed Forces. Delivered in 2 years against a 5-year estimate (60% faster), saving ₹300+ crore through in-house data engineering innovation.</div>
+        <div class="timeline-metrics">
+          <span class="timeline-metric"><strong>60% ahead</strong> of schedule</span>
+          <span class="timeline-metric"><strong>₹300Cr</strong> cost saved</span>
+          <span class="timeline-metric"><strong>300+</strong> specifications</span>
+          <span class="timeline-metric"><strong>8-member</strong> team</span>
+        </div>
+        <div class="timeline-expand">
+          <button class="expand-toggle" onclick="toggleExpand(this)">
+            <span>VIEW DETAILS</span> <span class="chevron">▾</span>
+          </button>
+          <div class="expand-content">
+            <ul>
+              <li>Designed core rule-based decision engine — radar activation triggers, engagement matrices, weapon selection/salvo sizing, hit/miss probability calculations. Validated against real-world operational inputs through frontline warship deployments.</li>
+              <li>Managed architecture continuity under critical dependency failure — external architect exited without knowledge transfer; independently studied HLD/LLD and enforced architectural adherence throughout development</li>
+              <li>Led build-vs-buy decision — eliminated ₹300Cr Janes vendor dependency by designing in-house ETL data pipeline from licensed HTML source material. Delivered functional equivalent military asset database.</li>
+              <li>Owned full program lifecycle: URS → SRS (300+ functions) → Hybrid PMBOK + Agile → DevSecOps (CI/CD, SAST, VAPT) → Goa deployment → Sprint 2 iterations</li>
+              <li>Led 8-member cross-functional engineering team; managed stakeholder alignment between Goa and Delhi throughout program lifecycle</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PROJECTS ═══════════════════════════ -->
+<div class="projects-section" id="projects">
+  <div class="section-label reveal">Project Highlights</div>
+  <h2 class="section-title reveal">High-Impact <em>Work</em></h2>
+  <div class="projects-grid">
+
+    <div class="project-card reveal">
+      <div class="project-card-img">
+        🏛
+        <span class="project-card-img-label">
+          <!-- REPLACE: Insert enterprise risk framework visual here -->
+          Enterprise Risk Framework
+        </span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-tag">GRC · Risk Management</div>
+        <div class="project-title">Enterprise Risk Framework — National Scale</div>
+        <div class="project-problem">No GRC framework existed for a ₹3,000Cr national IT transformation. External consultants billing ₹30Cr annually without governance depth.</div>
+        <div class="project-action">Designed and implemented enterprise GRC framework from zero — NIST CSF + NIST 800-53 + ISO 27001 + CERT-In. Built risk register, KRIs, RCM. Established quarterly reporting to audit committee equivalents. Eliminated external dependency entirely.</div>
+        <div class="project-impact-row">
+          <span class="impact-tag">Zero breach incidents · 4 years</span>
+          <span class="impact-tag">₹30Cr saved</span>
+          <span class="impact-tag">460+ apps governed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-card-img">
+        🔐
+        <span class="project-card-img-label">
+          <!-- REPLACE: Insert ISMS / ISO 27001 visual here -->
+          ISMS Implementation
+        </span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-tag">ISO 27001 · ISMS</div>
+        <div class="project-title">ISO 27001 ISMS — Three Independent Implementations</div>
+        <div class="project-problem">Each posting required a fully independent ISMS built from scratch — including one on a warship 270 days at sea with zero external support.</div>
+        <div class="project-action">Implemented Naval ISMS equivalent to ISO 27001:2022 at each posting — gap assessments, control baselines, policy lifecycle, quarterly internal audits, annual Command HQ external audits, nonconformity closure.</div>
+        <div class="project-impact-row">
+          <span class="impact-tag">3 independent implementations</span>
+          <span class="impact-tag">SOC2-equivalent readiness</span>
+          <span class="impact-tag">Zero critical unresolved findings</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-card-img">
+        🔗
+        <span class="project-card-img-label">
+          <!-- REPLACE: Insert TPRM / vendor risk visual here -->
+          TPRM Program
+        </span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-tag">TPRM · Vendor Risk · Build vs Buy</div>
+        <div class="project-title">₹300Cr Vendor Dependency Eliminated</div>
+        <div class="project-problem">External vendor (Janes) quoted ₹20Cr for a limited military dataset; full scope estimated at ₹300Cr+. Program budget and delivery timeline severely threatened.</div>
+        <div class="project-action">Led build-vs-buy risk decision. Designed in-house ETL pipeline from licensed HTML source material. Hired and guided intern to build data extraction and structuring pipeline. Delivered functional equivalent dataset.</div>
+        <div class="project-impact-row">
+          <span class="impact-tag">₹300Cr+ cost eliminated</span>
+          <span class="impact-tag">Delivered in weeks</span>
+          <span class="impact-tag">Operationally validated</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-card-img">
+        ⚙️
+        <span class="project-card-img-label">
+          <!-- REPLACE: Insert DevSecOps / SDLC visual here -->
+          Secure SDLC
+        </span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-tag">Secure SDLC · DevSecOps · Architecture</div>
+        <div class="project-title">National Wargame — Secure SDLC & Architecture Governance</div>
+        <div class="project-problem">External architect exited mid-project without knowledge transfer. DevSecOps pipeline and architecture governance had to be absorbed and sustained independently.</div>
+        <div class="project-action">Independently studied HLD/LLD. Maintained architectural integrity. Embedded SAST and VAPT into CI/CD pipeline. Designed core rule-based decision engine validated against real operational environments on frontline warships.</div>
+        <div class="project-impact-row">
+          <span class="impact-tag">Delivered 60% ahead of 5-year estimate</span>
+          <span class="impact-tag">Zero architectural failures</span>
+          <span class="impact-tag">Real-world validated</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-card-img">
+        🚨
+        <span class="project-card-img-label">
+          <!-- REPLACE: Insert incident response / operations visual here -->
+          Critical Incident
+        </span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-tag">Incident Response · L1–L3 · Zero Support</div>
+        <div class="project-title">Critical Infrastructure Incident — Mail Server at Sea</div>
+        <div class="project-problem">Mail server failure mid-deployment at sea — mission-critical communications infrastructure lost. Zero vendor support. Zero escalation path. No help desk.</div>
+        <div class="project-action">Diagnosed root cause: storage exhaustion + RAID misconfiguration. Executed data backup, RAID reconfiguration and capacity optimisation. Restored service and eliminated single point of failure — all independently, at sea.</div>
+        <div class="project-impact-row">
+          <span class="impact-tag">Zero data loss</span>
+          <span class="impact-tag">SPOF eliminated</span>
+          <span class="impact-tag">Full service restoration</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-card-img">
+        🌐
+        <span class="project-card-img-label">
+          <!-- REPLACE: Insert cyber exercise / resilience visual here -->
+          Cyber Exercises
+        </span>
+      </div>
+      <div class="project-card-body">
+        <div class="project-tag">Cyber Resilience · National · International</div>
+        <div class="project-title">4 National & International Cyber Exercises</div>
+        <div class="project-problem">Cyber resilience and incident response capability must be tested under real-scenario pressure — not just documented in plans.</div>
+        <div class="project-action">Participated in Bharat National Cybersecurity Exercise (multi-agency), bilateral Cyber Drills with Japanese Forces, Cyber Suraksha (DCyA) and Cyber Abhyass (Navy Cyber Group) — stress-testing CERT-In protocols and cross-agency response under simulated real-world conditions.</div>
+        <div class="project-impact-row">
+          <span class="impact-tag">4 exercises</span>
+          <span class="impact-tag">International bilateral</span>
+          <span class="impact-tag">CERT-In protocols operationalised</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ METRICS ════════════════════════════ -->
+<div class="metrics-section">
+  <div class="metrics-inner">
+    <div class="section-label reveal" style="margin-bottom:40px;">Impact at Scale</div>
+    <div class="metrics-grid reveal">
+      <div class="metric-item">
+        <div class="metric-num">100,000+</div>
+        <div class="metric-label">Users Governed</div>
+        <div class="metric-sub">Across national enterprise program</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">460+</div>
+        <div class="metric-label">Applications Audited</div>
+        <div class="metric-sub">Legacy + newly developed systems</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">₹3,000Cr+</div>
+        <div class="metric-label">Program Scale</div>
+        <div class="metric-sub">National network modernisation</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">₹300Cr+</div>
+        <div class="metric-label">Cost Saving</div>
+        <div class="metric-sub">OLWG build-vs-buy innovation</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">₹30Cr</div>
+        <div class="metric-label">Consulting Costs Eliminated</div>
+        <div class="metric-sub">In-house GRC capability built</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">35+</div>
+        <div class="metric-label">Team Led</div>
+        <div class="metric-sub">Officers & technical specialists</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">3×</div>
+        <div class="metric-label">ISMS Implemented</div>
+        <div class="metric-sub">Independent implementations</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">4</div>
+        <div class="metric-label">Cyber Exercises</div>
+        <div class="metric-sub">National & international</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">0</div>
+        <div class="metric-label">Breach Incidents</div>
+        <div class="metric-sub">Across 4-year program lifecycle</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SKILLS ═════════════════════════════ -->
+<div class="skills-section">
+  <div class="section-label reveal">Frameworks & Skills</div>
+  <h2 class="section-title reveal">Technical <em>Depth</em></h2>
+  <div class="skills-grid">
+
+    <div class="skills-group reveal">
+      <div class="skills-group-title">Governance & Risk Frameworks</div>
+      <div class="skills-tags">
+        <span class="skill-tag primary">ISO 27001:2022</span>
+        <span class="skill-tag primary">NIST CSF 2.0</span>
+        <span class="skill-tag primary">NIST 800-53</span>
+        <span class="skill-tag">ISO 27005</span>
+        <span class="skill-tag">ISO 31000</span>
+        <span class="skill-tag primary">ISO 42001 (AI-MS)</span>
+        <span class="skill-tag">CIS Benchmarks</span>
+        <span class="skill-tag">COBIT Awareness</span>
+        <span class="skill-tag">PCI DSS Awareness</span>
+        <span class="skill-tag">SOC 2 Awareness</span>
+        <span class="skill-tag">GDPR Awareness</span>
+        <span class="skill-tag">DPDPA</span>
+      </div>
+    </div>
+
+    <div class="skills-group reveal">
+      <div class="skills-group-title">Regulatory & Compliance</div>
+      <div class="skills-tags">
+        <span class="skill-tag primary">CERT-In</span>
+        <span class="skill-tag primary">NCIIPC</span>
+        <span class="skill-tag">SEBI Framework</span>
+        <span class="skill-tag">RBI Framework</span>
+        <span class="skill-tag">IT Act 2000</span>
+        <span class="skill-tag">DPDPA 2023</span>
+        <span class="skill-tag">Audit Management</span>
+        <span class="skill-tag primary">ITGC Control Testing</span>
+        <span class="skill-tag primary">TPRM</span>
+      </div>
+    </div>
+
+    <div class="skills-group reveal">
+      <div class="skills-group-title">Cybersecurity Operations</div>
+      <div class="skills-tags">
+        <span class="skill-tag primary">Vulnerability Management</span>
+        <span class="skill-tag">VA/PT Oversight</span>
+        <span class="skill-tag primary">Incident Response (L1–L3)</span>
+        <span class="skill-tag">SOC/NOC Governance</span>
+        <span class="skill-tag">Threat Modelling</span>
+        <span class="skill-tag">Zero Trust</span>
+        <span class="skill-tag">EDR/EPP</span>
+        <span class="skill-tag">IDS/IPS</span>
+        <span class="skill-tag">SIEM Governance</span>
+        <span class="skill-tag">BCP/DR</span>
+      </div>
+    </div>
+
+    <div class="skills-group reveal">
+      <div class="skills-group-title">Technology & Architecture</div>
+      <div class="skills-tags">
+        <span class="skill-tag primary">Secure SDLC</span>
+        <span class="skill-tag">DevSecOps</span>
+        <span class="skill-tag">SAST / VAPT</span>
+        <span class="skill-tag">CI/CD Security</span>
+        <span class="skill-tag">Cloud Security (CCSE)</span>
+        <span class="skill-tag">IAM / RBAC / SSO</span>
+        <span class="skill-tag">Windows Server / ADC</span>
+        <span class="skill-tag">Firewall Governance</span>
+        <span class="skill-tag">ETL Pipeline Design</span>
+        <span class="skill-tag">HLD/LLD Governance</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ CERTIFICATIONS ════════════════════ -->
+<div class="certs-section">
+  <div class="certs-inner">
+    <div class="section-label reveal">Credentials</div>
+    <h2 class="section-title reveal">Certifications & <em>Education</em></h2>
+    <div class="certs-grid">
+      <div class="cert-card reveal">
+        <div class="cert-icon">🛡️</div>
+        <div class="cert-name">CISSP</div>
+        <div class="cert-issuer">ISC2 · Certified</div>
+        <div><span class="cert-status status-active">Active</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">📋</div>
+        <div class="cert-name">ISO 27001 Lead Implementer</div>
+        <div class="cert-issuer">Exemplar Global Accredited</div>
+        <div><span class="cert-status status-active">Certified</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-name">ISO 42001 Lead Implementer</div>
+        <div class="cert-issuer">TÜV SÜD · AI Management</div>
+        <div><span class="cert-status status-pursuing">In Progress</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">☁️</div>
+        <div class="cert-name">CCSE</div>
+        <div class="cert-issuer">EC-Council · Cloud Security</div>
+        <div><span class="cert-status status-active">Certified</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">🔍</div>
+        <div class="cert-name">CySA+</div>
+        <div class="cert-issuer">CompTIA</div>
+        <div><span class="cert-status status-active">Certified</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">🔐</div>
+        <div class="cert-name">CC</div>
+        <div class="cert-issuer">ISC2 · Cybersecurity</div>
+        <div><span class="cert-status status-active">Certified</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">☁️</div>
+        <div class="cert-name">CCSP</div>
+        <div class="cert-issuer">ISC2 · Cloud Professional</div>
+        <div><span class="cert-status status-pursuing">In Progress</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-name">IIM Lucknow Executive</div>
+        <div class="cert-issuer">Global Ops & Supply Chain · 2026</div>
+        <div><span class="cert-status status-pursuing">Govt-Deputed</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ LEADERSHIP ════════════════════════ -->
+<div class="leadership-section">
+  <div class="section-label reveal">Leadership</div>
+  <h2 class="section-title reveal">How I <em>Work</em></h2>
+  <div class="leadership-grid">
+
+    <div class="leadership-card reveal">
+      <div class="leadership-card-icon">🎯</div>
+      <div class="leadership-card-content">
+        <div class="leadership-card-title">Stakeholder Engagement</div>
+        <div class="leadership-card-text">I have presented risk posture, audit findings and strategic recommendations to CISO-equivalents, audit committees and senior ministry leadership throughout my career — including during live geo-political escalations. I translate technical risk into board-level decision language, not slide decks full of CVE numbers.</div>
+      </div>
+    </div>
+
+    <div class="leadership-card reveal">
+      <div class="leadership-card-icon">⚖️</div>
+      <div class="leadership-card-content">
+        <div class="leadership-card-title">Regulatory Confidence</div>
+        <div class="leadership-card-text">Twelve years of operational familiarity with CERT-In, NCIIPC and Government of India security directives — not theoretical awareness. I have tracked advisories, facilitated regulatory audits and embedded compliance into enterprise programs throughout my career. I also participated in bilateral cyber exercises with Japanese Forces.</div>
+      </div>
+    </div>
+
+    <div class="leadership-card reveal">
+      <div class="leadership-card-icon">👥</div>
+      <div class="leadership-card-content">
+        <div class="leadership-card-title">Leading Under Pressure</div>
+        <div class="leadership-card-text">I have led 35+ member teams, managed critical infrastructure incidents independently with zero vendor support at sea, and absorbed architecture governance mid-project after a dependency failure — without missing the delivery timeline. Operational pressure is where I am most precise, not least effective.</div>
+      </div>
+    </div>
+
+    <div class="leadership-card reveal">
+      <div class="leadership-card-icon">💡</div>
+      <div class="leadership-card-content">
+        <div class="leadership-card-title">Decision-Making at Scale</div>
+        <div class="leadership-card-text">The ₹300Cr build-vs-buy decision on the OLWG program was not a committee recommendation — it was a structured analysis I led, presented and executed. I bring the same commercial awareness to every risk decision: cost, risk, dependency, time. Governance without judgment is just paperwork.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ CONTACT ════════════════════════════ -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-label">Contact</div>
+      <div class="contact-intro">Let's<br><em>connect.</em></div>
+      <p class="contact-sub">I am open to discussions around senior cybersecurity GRC, risk consulting and IT leadership roles in Delhi NCR. I am available from July 2026 — and open to early conversations.</p>
+      <div class="contact-availability">
+        <div class="availability-title">Availability</div>
+        <div class="availability-text"><span class="availability-dot"></span>Available for senior GRC and cybersecurity leadership roles from July 2026. Open to early interviews and discussions. Currently completing IIM Lucknow Executive Programme (Government-deputed).</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="contact-links">
+        <a href="mailto:piyushb13@gmail.com" class="contact-link">
+          <div class="contact-link-icon">✉</div>
+          <div class="contact-link-body">
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">piyushb13@gmail.com</div>
+          </div>
+        </a>
+        <a href="tel:+917830842470" class="contact-link">
+          <div class="contact-link-icon">📞</div>
+          <div class="contact-link-body">
+            <div class="contact-link-label">Phone</div>
+            <div class="contact-link-value">+91 7830842470</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/piyushbelwal" target="_blank" class="contact-link">
+          <div class="contact-link-icon">in</div>
+          <div class="contact-link-body">
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-value">linkedin.com/in/piyushbelwal</div>
+          </div>
+        </a>
+        <a href="#" class="contact-link" onclick="alert('Link your resume PDF here: Update the href attribute with your actual resume file path.')">
+          <div class="contact-link-icon">↓</div>
+          <div class="contact-link-body">
+            <div class="contact-link-label">Resume</div>
+            <!-- REPLACE: Update href to actual resume PDF path -->
+            <div class="contact-link-value">Download CV · PDF</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ FOOTER ═════════════════════════════ -->
+<footer>
+  <div class="footer-name">Piyush Belwal — Cyber GRC & Risk Leader</div>
+  <div class="footer-note">New Delhi · CISSP · ISO 27001 Lead Implementer · 12 Years</div>
+</footer>
+
+<!-- ═══════════════════ JS ═════════════════════════════════ -->
+<script>
+// Timeline expand/collapse
+function toggleExpand(btn) {
+  const content = btn.nextElementSibling;
+  const isOpen = content.classList.contains('open');
+  content.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  btn.querySelector('span:first-child').textContent = isOpen ? 'VIEW DETAILS' : 'HIDE DETAILS';
+}
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => observer.observe(el));
+
+// Staggered reveals within grids
+document.querySelectorAll('.cap-grid .cap-card, .certs-grid .cert-card, .projects-grid .project-card, .leadership-grid .leadership-card').forEach((el, i) => {
+  el.style.transitionDelay = `${(i % 3) * 80}ms`;
+});
+
+// Metrics counter animation
+const metricNums = document.querySelectorAll('.metric-num');
+const metricObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '0';
+      entry.target.style.transform = 'translateY(12px)';
+      setTimeout(() => {
+        entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }, 100);
+      metricObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+metricNums.forEach(el => metricObserver.observe(el));
+</script>
+</body>
+</html>
